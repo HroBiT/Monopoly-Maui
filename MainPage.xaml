@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hejka.MainPage"
+             Title="MainPage">
+
+    <Grid Padding="20"
+          RowDefinitions="75,46,44,46,60,46,46,75"
+          ColumnDefinitions="75,45,45,40,55,45,44,75"
+          RowSpacing="0"
+          ColumnSpacing="0">
+
+
+        <Border Grid.Row="0" Grid.Column="0" BackgroundColor="Green" Stroke="Green" StrokeThickness="1" />
+        <Border Grid.Row="0" Grid.Column="1" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="0" Grid.Column="2" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="0" Grid.Column="3" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="0" Grid.Column="4" BackgroundColor="Red" Stroke="Red" StrokeThickness="1" />
+        <Border Grid.Row="0" Grid.Column="5" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="0" Grid.Column="6" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="0" Grid.Column="7" BackgroundColor="Blue" Stroke="Blue" StrokeThickness="1" />
+
+
+        <Border Grid.Row="1" Grid.Column="0" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="2" Grid.Column="0" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="3" Grid.Column="0" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="4" Grid.Column="0" BackgroundColor="#5F9EA0" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="5" Grid.Column="0" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="6" Grid.Column="0" Stroke="Black" StrokeThickness="1" />
+
+
+        <Border Grid.Row="1" Grid.Column="7" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="2" Grid.Column="7" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="3" Grid.Column="7" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="4" Grid.Column="7" BackgroundColor="#5F9EA0" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="5" Grid.Column="7" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="6" Grid.Column="7" Stroke="Black" StrokeThickness="1" />
+
+
+        <Border Grid.Row="7" Grid.Column="0" BackgroundColor="#A52A2A" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="7" Grid.Column="1" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="7" Grid.Column="2" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="7" Grid.Column="3" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="7" Grid.Column="4" BackgroundColor="Red" Stroke="Red" StrokeThickness="1" />
+        <Border Grid.Row="7" Grid.Column="5" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="7" Grid.Column="6" Stroke="Black" StrokeThickness="1" />
+        <Border Grid.Row="7" Grid.Column="7" BackgroundColor="Salmon" Stroke="Black" StrokeThickness="1" />
+    </Grid>
+</ContentPage>
