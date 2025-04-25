@@ -1,4 +1,4 @@
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using System;
 using System.Collections.Generic;
@@ -47,7 +47,7 @@ namespace MonopolyBoard
             {
                 Stroke = Colors.Black,
                 StrokeThickness = 1,
-                BackgroundColor = player.Color, 
+                BackgroundColor = player.Color,
                 WidthRequest = 20,
                 HeightRequest = 20,
                 HorizontalOptions = LayoutOptions.Center,
@@ -106,5 +106,32 @@ namespace MonopolyBoard
                 column = 0;
             }
         }
+
+        private void UpdatePropertyVisualization(Property property)
+        {
+            if (property != null && property.IsOwned)
+            {
+                // Znajdź odpowiednie pole na planszy na podstawie nazwy
+                var square = _viewModel.Squares.FirstOrDefault(s => s.Property == property);
+                if (square != null)
+                {
+                    int row = 0, column = 0;
+                    GetRowColumnFromPosition(square.Position, out row, out column);
+
+                    // Znajdź Border dla tego pola
+                    var borders = BoardGrid.Children.OfType<Border>();
+                    var border = borders.FirstOrDefault(b =>
+                        Grid.GetRow(b) == row && Grid.GetColumn(b) == column);
+
+                    if (border != null)
+                    {
+                        // Dodaj kolorowy pasek na górze Border, aby zaznaczyć własność
+                        border.Stroke = property.Owner.Color;
+                        border.StrokeThickness = 5;
+                    }
+                }
+            }
+        }
+
     }
 }

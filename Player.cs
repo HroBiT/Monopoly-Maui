@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Microsoft.Maui.Graphics;
@@ -33,7 +34,7 @@ namespace MonopolyBoard
             }
         }
 
-        public Color Color 
+        public Color Color
         {
             get => _color;
             set
@@ -43,12 +44,15 @@ namespace MonopolyBoard
             }
         }
 
+        public ObservableCollection<Property> OwnedProperties { get; }
+
         public Player(string name, int red, int green, int blue)
         {
             Name = name;
             Money = 1500;
             Position = 0;
-            Color = new Color(red / 255f, green / 255f, blue / 255f); 
+            Color = new Color(red / 255f, green / 255f, blue / 255f);
+            OwnedProperties = new ObservableCollection<Property>();
         }
 
         public void ThrowDice()
@@ -62,14 +66,38 @@ namespace MonopolyBoard
         public void Move(int steps)
         {
             Position += steps;
-            if (Position >= 28) 
+            if (Position >= 28)
             {
                 Position -= 28;
                 Money += 200;
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public bool CanBuyProperty(Property property)
+        {
+            return Money >= property.Cost;
+        }
+
+        public void BuyProperty(Property property)
+        {
+            if (CanBuyProperty(property))
+            {
+                Money -= property.Cost;
+                OwnedProperties.Add(property);
+                property.Owner = this;
+            }
+        }
+
+        public void PayRent(Property property)
+        {
+            if (property.IsOwned && property.Owner != this)
+            {
+                Money -= property.Rent;
+                property.Owner.Money += property.Rent;
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
